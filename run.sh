@@ -1,0 +1,1 @@
+python main.py --raw_feature_path datasets/2008-01-01.2014-12-31_2015-01-01.2016-12-31_2017-01-01.2020-08-01_csi300/OHLCV
