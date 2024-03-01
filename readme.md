@@ -11,7 +11,6 @@ We run experiments on the crowd-source version of qlib data which can be downloa
 wget https://github.com/chenditc/investment_data/releases/download/2023-06-01/qlib_bin.tar.gz
 tar -zxvf qlib_bin.tar.gz -C ~/.qlib/qlib_data/crowd_data --strip-components=2
 ```
-Arg `--data_dir crowd_data` and `--data_dir cn_data` for crowd-source data and Yahoo-source data, respectively.
 
 ## Requirements
 
