@@ -29,7 +29,7 @@ if __name__ == '__main__':
     warnings.filterwarnings("ignore")
     # use default data
     # NOTE: need to download data from remote: python scripts/get_data.py qlib_data_cn --target_dir ~/.qlib/qlib_data/cn_data
-    provider_uri = "~/.qlib/qlib_data/cn_data"  # target_dir
+    provider_uri = "~/.qlib/qlib_data/crowd_data"  # target_dir
     qlib.init(provider_uri=provider_uri, region=REG_CN)
 
     args = parse_arguments()
