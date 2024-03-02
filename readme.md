@@ -18,6 +18,8 @@ For windows, extract these 3 folders to C:\\Users\\**[your_user_name]**\\.qlib\\
 
 ## Requirements
 
+Please use python version **<= 3.11**, or you may encounter some problems.
+
 ### Qlib
 
 First, you should install the [qlib](https://github.com/microsoft/qlib) library.
