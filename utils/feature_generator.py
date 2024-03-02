@@ -23,7 +23,7 @@ class FeatureGenerator:
         self.fp = feature_processor.FeatureProcessor(raw_feature_path, logger)
         self.logger = logger
         open('features.jsonl', 'w').close()
-        self.fp.load_features_from_str(json.dumps(prompts.groupy_by_stock_and_date_seed_features))
+        self.fp.load_features_from_str(json.dumps(prompts.groupy_by_stock_and_date_seed_features), filter=False)
         self.seeds = prompts.groupy_by_stock_seed_features
         self.seed_pool = []
         self.func_mut_pool = []
