@@ -9,8 +9,12 @@ We employ ChatGPT to automate the process of exploring stock factors, enabling t
 We run experiments on the crowd-source version of qlib data which can be downloaded by
 ```bash
 wget https://github.com/chenditc/investment_data/releases/download/2023-06-01/qlib_bin.tar.gz
+mkdir -p ~/.qlib/qlib_data/crowd_data
 tar -zxvf qlib_bin.tar.gz -C ~/.qlib/qlib_data/crowd_data --strip-components=2
 ```
+You can also manually download the [data files](https://github.com/chenditc/investment_data/releases/download/2023-06-01/qlib_bin.tar.gz) and extract the `calenders`, `features` and the `instruments` folders to the folder ~/.qlib/qlib_data/crowd_data.
+
+For windows, extract these 3 folders to C:\\Users\\**[your_user_name]**\\.qlib\\qlib_data\\crowd_data.
 
 ## Requirements
 
@@ -24,6 +28,8 @@ pip install --upgrade  cython
 git clone https://github.com/microsoft/qlib.git && cd qlib
 pip install .
 ```
+
+Please use python version <= 3.11, or you may encounter some problems.
 
 ### Packages
 ```bash

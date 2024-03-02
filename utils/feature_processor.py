@@ -163,7 +163,7 @@ class FeatureProcessor:
                     tmp_ic = ic
                     dropped = True
             if not loop or not dropped: break
-        test_ic = self.evaluate_ic()
+        test_ic = self.evaluate_ic(valid=False)
         self.logger.info(f'ic after filter {test_ic:.5f}')
         if test_ic > self.best_ic:
             self.best_ic = test_ic
