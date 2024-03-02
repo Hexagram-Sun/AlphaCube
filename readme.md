@@ -14,7 +14,7 @@ tar -zxvf qlib_bin.tar.gz -C ~/.qlib/qlib_data/crowd_data --strip-components=2
 ```
 You can also manually download the [data files](https://github.com/chenditc/investment_data/releases/download/2023-06-01/qlib_bin.tar.gz) and extract the `calenders`, `features` and the `instruments` folders to the folder ~/.qlib/qlib_data/crowd_data.
 
-For windows, extract these 3 folders to C:\Users\[your_user_name]\.qlib\qlib_data\crowd_data.
+For windows, extract these 3 folders to C:\\Users\\**[your_user_name]**\\.qlib\\qlib_data\\crowd_data.
 
 ## Requirements
 
