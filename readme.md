@@ -48,11 +48,12 @@ python -u scripts/prepare_dataset.py \
 --test_start "2017-01-01" --test_end "2020-08-01" \
 --market "csi300"
 ```
-The generated dataset will be in the **datasets** folder.
+The generated dataset will be in the `datasets` folder.
 
 ### Fill Openai API key
-create the file **utils/api_key.txt** and fill it with a valid OpenAI API key (sk-xxxx).
-You can change the GPT settings in **utils/GPT.py**.
+create the file `utils/api_key.txt` and fill it with a valid OpenAI API key (sk-xxxx).
+
+You can change the GPT settings in `utils/GPT.py`.
 
 ### Generate stock Alphas
 ```bash
@@ -61,12 +62,11 @@ python main.py \
 --n_alphas 300
 ```
 
-Arg `--n_alphas` is the number of desired generated factors. The generated alpha expressions will be in **features.jsonl**.
+Arg `--n_alphas` is the number of desired generated factors. The generated alpha expressions will be in `features.jsonl`.
 
 ## More examples
 
 You can see more examples in `examples` directory.
 
-**alphas_from_inst.py** generates alphas with user's instruction.
-
-**load_features.py** loads alphas saved in jsonl file and automatically evaluates the IC metric.
++ **alphas_from_inst.py** generates alphas with user's instruction.
++ **load_features.py** loads alphas saved in jsonl file and automatically evaluates the IC metric.
