@@ -3,7 +3,10 @@ import os
 
 # os.environ['http_proxy'] = '127.0.0.1:10809'
 # os.environ['https_proxy'] = '127.0.0.1:10809'
-openai.api_key = ''
+
+assert os.path.exists('utils/api_key.txt'), 'utils/api_key.txt not found'
+with open('utils/api_key.txt', 'r') as f:
+    openai.api_key = f.read()
 
 def gpt(prompt):
     

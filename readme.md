@@ -51,7 +51,7 @@ python -u scripts/prepare_dataset.py \
 The generated dataset will be in the **datasets** folder.
 
 ### Fill Openai API key
-Replace the empty string after `openai.api_key` in **utils/GPT.py** with a valid API key.
+create the file **utils/api_key.txt** and fill it with a valid OpenAI API key (sk-xxxx).
 
 ### Generate stock Alphas
 ```bash
