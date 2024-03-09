@@ -68,4 +68,5 @@ Arg `--n_alphas` is the number of desired generated factors. The generated alpha
 You can see more examples in `examples` directory.
 
 **alphas_from_inst.py** generates alphas with user's instruction.
+
 **load_features.py** loads alphas saved in jsonl file and automatically evaluates the IC metric.
