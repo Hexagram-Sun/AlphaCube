@@ -52,6 +52,7 @@ The generated dataset will be in the **datasets** folder.
 
 ### Fill Openai API key
 create the file **utils/api_key.txt** and fill it with a valid OpenAI API key (sk-xxxx).
+You can change the GPT settings in **utils/GPT.py**.
 
 ### Generate stock Alphas
 ```bash
@@ -61,3 +62,10 @@ python main.py \
 ```
 
 Arg `--n_alphas` is the number of desired generated factors. The generated alpha expressions will be in **features.jsonl**.
+
+## More examples
+
+You can see more examples in `examples` directory.
+
+**alphas_from_inst.py** generates alphas with user's instruction.
+**load_features.py** loads alphas saved in jsonl file and automatically evaluates the IC metric.

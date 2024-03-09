@@ -234,11 +234,10 @@ class FeatureProcessor:
         
         return features_tmp
 
-    def load_features_from_file(self, file, **kwargs):
-        with open(file) as f:
+    def load_features_from_file(self, path, file=None, filter=False, **kwargs):
+        with open(path) as f:
             txt = f.read().strip().replace('\n', ' ')
-
-        return self.load_features_from_str(txt, file='' if file.endswith('features.jsonl') else './features.jsonl', **kwargs)
+        return self.load_features_from_str(txt, file='' if path.endswith('features.jsonl') else './features.jsonl', filter=filter, **kwargs)
     
     def save(self, save_path):
         if not os.path.exists(save_path):

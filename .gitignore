@@ -3,3 +3,7 @@ datasets/*
 logs/*
 !logs/.gitkeep
 utils/api_key.txt
+**/*.ipynb
+**/__pycache__/*
+utils/proxy.txt
+*.jsonl

@@ -6,7 +6,7 @@ import json, os, pickle
 
 def main():
     parser = argparse.ArgumentParser(description="Process market and raw feature path")
-    parser.add_argument("--raw_feature_path", type=str, default=r'datasets\2008-01-01.2014-12-31_2015-01-01.2016-12-31_2017-01-01.2020-08-01_csi300\OHLCV', help="Raw feature path")
+    parser.add_argument("--raw_feature_path", type=str, default='datasets/2008-01-01.2014-12-31_2015-01-01.2016-12-31_2017-01-01.2020-08-01_csi300/OHLCV', help="Raw feature path")
     parser.add_argument("--n_alphas", type=int, default=300, help="Number of desired generated factors")
     args = parser.parse_args()
 

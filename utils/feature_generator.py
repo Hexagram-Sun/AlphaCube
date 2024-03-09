@@ -23,7 +23,7 @@ class FeatureGenerator:
         self.fp = feature_processor.FeatureProcessor(raw_feature_path, logger)
         self.logger = logger
         open('features.jsonl', 'w').close()
-        self.fp.load_features_from_str(json.dumps(prompts.groupy_by_stock_and_date_seed_features), filter=False)
+        self.fp.load_features_from_str(json.dumps(prompts.groupy_by_stock_and_date_seed_features), filter=False, file=None)
         self.seeds = prompts.groupy_by_stock_seed_features
         self.seed_pool = []
         self.func_mut_pool = []
@@ -136,10 +136,10 @@ class FeatureGenerator:
             seed_use = np.random.choice(prompts.groupy_by_stock_seed_features, 3)
         # seed_use = prompts.groupy_by_stock_seed_features[:3]
         prompt = prompts.groupy_by_stock_seed_prompt % '\n'.join([json.dumps(seed) for seed in seed_use])
-        prompt = prompts.generate_1_seed_prompt % '\n'.join([json.dumps(seed) for seed in seed_use])
-                
+        # prompt = prompts.generate_1_seed_prompt % '\n'.join([json.dumps(seed) for seed in seed_use])
+
         resp = gpt(prompt)
-        self.logger.info(resp)
+        # self.logger.info(resp)
         features = feature_processor.FeatureProcessor.extract_features(resp)
         self.logger.info(f'get {len(features)} new seeds')
         
@@ -167,7 +167,15 @@ class FeatureGenerator:
             seeds = self.generate_new_seeds()
             if not seeds: continue
             self.mutation(seeds)
+    
+    def gen_factors_with_inst(self, inst):
+        resp = gpt(prompts.generate_seeds_with_user_instruction_prompt % ('\n'.join([json.dumps(x) for x in prompts.groupy_by_stock_seed_features]), inst))
+        features = feature_processor.FeatureProcessor.extract_features(resp)
+        self.logger.info(f'Generated {len(features)} seed features, mutating...')
+        mut_features = self.mutation(features)
+        self.logger.info(f'Generated {len(mut_features)} new features in total, saved in features.jsonl.')
+        
 
 # if __name__ == '__main__':
-#     fg=FeatureGenerator(r'datasets\2008-01-01.2014-12-31_2015-01-01.2016-12-31_2017-01-01.2020-08-01_csi300\OHLCV')
+#     fg=FeatureGenerator('dataset/2008-01-01.2014-12-31_2015-01-01.2016-12-31_2017-01-01.2020-08-01_csi300/OHLCV')
 #     print(fg.generate_new_seeds())

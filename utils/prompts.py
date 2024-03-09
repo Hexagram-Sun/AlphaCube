@@ -22,7 +22,7 @@ Please directly provide all JSON code without any punctuation and DON'T answerin
 
 groupy_by_stock_and_date_seed_features = [
     {"new_feature_name": "log_volume", "expression": "np.log(data_stock_date['VOLUME'] + 1)", "description": "log volume"},
-    {"new_feature_name": "vwap_close_ratio", "expression": "data_stock_date['VWAP'] / data_stock_date['CLOSE']", "description": "vwap div close"},
+    # {"new_feature_name": "vwap_close_ratio", "expression": "data_stock_date['VWAP'] / data_stock_date['CLOSE']", "description": "vwap div close"},
     # {"new_feature_name": "price_range", "expression": "data_stock_date['HIGH'] - data_stock_date['LOW']", "description": "price range"},
     # {"new_feature_name": "price_range_percentage_change", "expression": "((data_stock_date['HIGH'] - data_stock_date['LOW']) / data_stock_date['OPEN'])", "description": "Percentage Change in Price Range"}
 ]
@@ -71,6 +71,31 @@ For example, you can generate factors like this:
 Please provide only 1 feature that you find meaningful. You can use rolling, quantile, max, min, rank, corr, or apply and lambda . DO NOT generate factors that are already included. you can use np.sign, np.log, etc. for unary operations. If you believe there are no new factors, please answer: "I believe there are no new factors."
 
 Please directly provide the JSON code without any punctuation.
+'''
+
+generate_seeds_with_user_instruction_prompt = '''If you are a seasoned data analyst and you need to extract stock factors for next-day price prediction, the stock data is provided in the format of data_stock: pd.DataFrame, with a index of date. Each column represents a factor. The data table currently includes the following factors:
+
+OPEN: Opening price
+CLOSE: Closing price
+HIGH: Intraday high
+LOW: Intraday low
+VOLUME: Trading volume
+VWAP: Volume Weighted Average Price within a given time period
+log_volume: log volume
+
+the newly generated factors will be in the form of JSON dicts:
+
+{"new_feature_name": ..., "expression": ..., "description": ...}
+
+For example, you can generate factors like this:
+
+%s
+
+Please generate some effective factors you think are relevant based on the user's input. You can use rolling, quantile, max, min, rank, corr, or apply and lambda.
+
+Please directly provide all JSON code without any punctuation and DON'T answering in points, one line for each factor!
+
+User input: %s
 '''
 
 groupy_by_stock_seed_features = [
